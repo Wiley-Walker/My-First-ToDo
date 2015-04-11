@@ -1,0 +1,65 @@
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title style="font-size: 75px"><%= title %></title>
+  </head>
+  <body>
+    <h1 style="text-align: center; background-color: red"><%= title %></h1>
+    <div style="width: 400px; height: 500px; background-color: #00BFFF">
+    <img src="http://blog.cdn77.com/wp-uploads/2014/02/To-Do-List1.png" width="200" lenght="100">
+    <h2 style="font-family: Trebuchet MS"><%= header3 %></h2>
+    <h2 style="font-family: Trebuchet MS"><%= header %></h2>
+    <h2 style="font-family: Trebuchet MS"><%= header2 %></h2>
+    <h2 style="font-family: Trebuchet MS"><%= header4 %></h2>
+    </div>
+    <div style="margin-left: 400px; margin-top: -515px; width: 400px; height: 500px; background-color: #00BFFF">
+    
+    
+
+    <form  method="POST" action="/todo" class="cmxform" id="commentForm">
+    <ol>
+    	<li><input style="margin-top: 75px; width: 200px; height: 30px" type="text" name="mytitle">Title</li>
+    	<li><input style="margin-top: 75px; width: 200px; height: 30px" type="date" name="dueDate">Due Date</li>
+    	<li><input style="margin-top: 75px; width: 200px; height: 30px" type="text" name="description">Description</li>
+    	<li><input style="margin-top: 75px; width: 200px; height: 30px" type="number" name="priority">Priority (1-100)</li>
+    	<li><input style="margin-top: 75px; width: 200px; height: 30px; background-color: red" type="submit" name="complete" value="Submit Form"></li>
+    </ol>
+    </form>
+
+    </div>
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	<script src="http://cdn.jsdelivr.net/jquery.validation/1.13.1/jquery.validate.min.js"></script>
+	<script>
+$("#commentForm").validate({
+  rules: {
+    title: {
+      required: true,
+	  minlength: 5
+    },
+    dueDate: {
+      required: true,
+	  dateISO: true
+    },
+   description: {
+      required: true,
+	  maxlength: 20
+    },
+  priority: {
+      required: true,
+	  max: 100,
+	  min: 10
+    },
+
+  }
+});
+</script>
+  </body>
+</html>
